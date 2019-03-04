@@ -3,3 +3,6 @@
 # https://git-scm.com/docs/gitignore
 # 2018-JUL-31
 
+# Ignoring retry files
+*.retry
+
