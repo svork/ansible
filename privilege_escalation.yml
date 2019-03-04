@@ -4,9 +4,10 @@
 
   tasks:
   - name: Create user 'Hulk'
-    remote_user: root
     user:
       name: Hulk
       home: /home/hulk
       state: present
+    become: yes
+    become_method: su
 ...
