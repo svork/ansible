@@ -1,7 +1,8 @@
 ---
 # This is my very first Ansible Playbook
 
-- hosts: debian:centos
+- name: This is my very first Ansible Playbook
+  hosts: debian:centos
 
   tasks:
   - name: Testing connection with hosts
