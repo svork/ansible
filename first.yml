@@ -11,4 +11,13 @@
   - name: Test shell quoting
     command: /bin/echo $HOME
     remote_user: root
+
+- name: Is my user created?
+  hosts: centos
+
+  tasks:
+  - name: Checking whether user 'rodrigo' is present
+    user:
+      name: rodrigo
+      state: present
 ...
