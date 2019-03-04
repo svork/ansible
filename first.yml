@@ -20,4 +20,14 @@
     user:
       name: rodrigo
       state: present
+
+- name: Let us deploy ansible
+  hosts: debian
+
+  tasks:
+  - name: Deploying Ansible from Git
+    git:
+      repo: https://github.com/svork/ansible
+      dest: /tmp/deploy
+      version: HEAD
 ...
