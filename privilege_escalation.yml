@@ -1,0 +1,12 @@
+---
+- name: Privilege Escalation
+  hosts: centos:debian
+
+  tasks:
+  - name: Create user 'Hulk'
+    remote_user: root
+    user:
+      name: Hulk
+      home: /home/hulk
+      state: present
+...
