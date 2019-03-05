@@ -1,0 +1,16 @@
+---
+- name: Working with syslogd and handlers
+  hosts: debian
+
+  tasks:
+    - name: Watch syslogd
+      command: '/bin/echo Starting syslogd'
+      notify: "Restart syslogd"
+
+  handlers:
+    - name: restarting syslogd
+      systemd:
+        name: syslog
+        state: restarted
+      listen: "Restart syslogd"
+...
