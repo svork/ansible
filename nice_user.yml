@@ -1,0 +1,10 @@
+---
+- name: The nice_user is not supposed to be here
+  hosts: debian
+
+  tasks:
+  - name: Go away, nice user
+    user:
+      name: "{{ nice_user }}"
+      state: absent
+...

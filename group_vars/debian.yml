@@ -1,3 +1,6 @@
 ---
 ansible_user: root
+
+# Variable for testing purpose
+nice_user: svork
 ...
