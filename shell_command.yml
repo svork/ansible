@@ -1,0 +1,12 @@
+---
+- name: Test shell and command modules
+  hosts: centos:debian
+
+  tasks:
+  - name: Shell module
+    shell: /bin/true
+
+  - name: Command module
+    command: /bin/false
+    ignore_errors: True
+...
