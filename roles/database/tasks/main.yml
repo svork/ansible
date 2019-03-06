@@ -1,0 +1,17 @@
+---
+- name: Install MySQL server
+  yum:
+    name: mysql-server
+    state: latest
+
+- name: Start MySQL server
+  systemd:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Create application database
+  mysql_db:
+    name: "{{ database }}"
+    state: present
+...
