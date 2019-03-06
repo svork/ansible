@@ -1,8 +1,13 @@
 ---
-- name: Deploy Projeto RM
-  hosts: projeto_rm
+- name: Deploy Projeto RM database
+  hosts: projeto_rm_db
+
+  roles:
+  - database
+
+- name: Deploy Projeto RM web server
+  hosts: projeto_rm_web
 
   roles:
   - web
-  - database
 ...
