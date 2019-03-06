@@ -1,0 +1,23 @@
+---
+- name: Install PHP, Apache and Git
+  yum:
+    name: "{{ item }}"
+    state: latest
+    with_items:
+      - php
+      - httpd
+      - php-mysql
+      - git
+
+- name: Start Apache
+  systemd:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Deploy code from Git repo
+  git:
+    repo: "{{ repo }}"
+    dest: /var/www/html
+    version: HEAD
+...
