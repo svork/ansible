@@ -1,0 +1,8 @@
+---
+- name: Deploy Projeto RM
+  hosts: projeto_rm
+
+  roles:
+  - web
+  - database
+...
