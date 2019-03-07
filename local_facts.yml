@@ -1,0 +1,21 @@
+---
+- name: Using Local Facts
+  hosts: centos
+  
+  tasks:
+    - name: create local facts directory
+      file:
+        state: directory
+        dest: /etc/ansible/facts.d/
+        recurse: yes
+
+    - name: create fatos.fact file
+      copy:
+        src: fatos.fact
+        dest: /etc/ansible/facts.d/
+        mode: 0644
+
+    - name: re-run setup module to gather facts
+      setup: 
+        filter: ansible_local
+...
