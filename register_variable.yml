@@ -1,0 +1,13 @@
+---
+- name: The output of a command will be registered as a variable
+  hosts: debian:centos
+
+  tasks:
+  - name: Run the command
+    shell: /bin/uname -s
+    register: operating_system
+
+  - name: Test the variable
+    shell: /bin/echo Deu certo
+    when: operating_system.stdout_lines == ["Linux"]
+...
