@@ -1,0 +1,28 @@
+---
+- name: This playbook will use several 'when' statements
+  hosts: centos:debian
+
+  tasks:
+  - name: Say 'Ian Murdock' when a Debian is found
+    command: /bin/echo Ian Murdock
+    when: ansible_facts['os_family'] == "Debian"
+
+  - name: Say 'Yellow Dog Update Modified' when upon Red Hat like
+    command: /bin/echo Yellow Dog Updater Modified
+    when: ansible_facts['os_family'] == "RedHat"
+
+  - name: Have you found Debian 9.7?
+    command: /bin/true
+    when:
+    - ansible_facts['distribution'] == "Debian"
+    - ansible_facts['distribution_version'] == "9.7"
+
+  - name: We want 'false' values
+    shell: /bin/false
+    register: falso
+    ignore_errors: True
+
+  - name: We want false values again
+    command: /bin/echo Falso
+    when: falso is failed
+...
