@@ -1,13 +1,8 @@
 ---
 - name: Install PHP, Apache and Git
   yum:
-    name: "{{ item }}"
+    name: ['php', 'httpd', 'php-mysql', 'git']
     state: latest
-    with_items:
-      - php
-      - httpd
-      - php-mysql
-      - git
 
 - name: Start Apache
   systemd:
