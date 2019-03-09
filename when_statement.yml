@@ -1,6 +1,8 @@
 ---
 - name: This playbook will use several 'when' statements
-  hosts: centos:debian
+  hosts: debian
+  vars:
+    verdadeiro: true
 
   tasks:
   - name: Say 'Ian Murdock' when a Debian is found
@@ -29,4 +31,12 @@
   - name: Testing a integer value
     shell: /bin/echo "Greater than 8"
     when: ansible_facts['lsb']['major_release'] | int > 8
+
+  - name: Want some boolean logic?
+    command: /bin/echo "Tr00"
+    when: verdadeiro
+
+  - name: The opposite
+    command: /bin/echo "You phony"
+    when: not verdadeiro
 ...
