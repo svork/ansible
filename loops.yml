@@ -1,0 +1,13 @@
+---
+- name: Using loops to do stuff
+  hosts: debian:centos
+
+  tasks: 
+    - name: The most basic loop
+      user:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - John
+        - Doe
+...
