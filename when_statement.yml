@@ -25,4 +25,8 @@
   - name: We want false values again
     command: /bin/echo Falso
     when: falso is failed
+  
+  - name: Testing a integer value
+    shell: /bin/echo "Greater than 8"
+    when: ansible_facts['lsb']['major_release'] | int > 8
 ...
