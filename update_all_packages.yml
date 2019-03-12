@@ -1,0 +1,27 @@
+---
+- name: Update all packages of our systems
+  hosts: all
+
+  tasks:
+    - name: Update all RedHat packages
+      yum:
+        name: "*"
+        state: latest
+        update_cache: yes
+      notify: "Restart Server"
+      when: ansible_os_family == "RedHat"
+
+    - name: Update all Debian packages
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+        force_apt_get: true
+      notify: "Restart Server"
+      when: ansible_os_family == "Debian"
+
+  handlers:
+    - name: restart
+      shell: /sbin/shutdown -r
+      listen: "Restart Server"
+...
