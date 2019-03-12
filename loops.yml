@@ -10,4 +10,21 @@
       loop:
         - John
         - Doe
+
+    - name: create some groups
+      group:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - a_group
+        - b_group
+
+    - name: creating a few users and groups
+      user:
+        name: "{{ item.name }}"
+        group: "{{ item.group }}"
+        state: present
+      loop:
+        - { name: 'a_user', group: 'a_group' }
+        - { name: 'b_user', group: 'b_group' }
 ...
