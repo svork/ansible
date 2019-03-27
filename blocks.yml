@@ -1,0 +1,14 @@
+---
+- name: Blocks, seems to be a kind of try-catch-finally thing
+  hosts: debian
+
+  tasks:
+  - name: Using a block to handle exceptions
+    block:
+      - command: /bin/false
+    rescue:
+      - debug:
+          msg: "Hang tight!"
+    always:
+      - command: /bin/echo "I don't care"
+...
