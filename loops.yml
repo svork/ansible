@@ -27,4 +27,11 @@
       loop:
         - { name: 'a_user', group: 'a_group' }
         - { name: 'b_user', group: 'b_group' }
+
+    - name: Using do until loops
+      command: /bin/echo "Found you"
+      register: resposta
+      until: resposta.stdout.find("Found ya") == -1
+      retries: 4
+      delay: 4
 ...
