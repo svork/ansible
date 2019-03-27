@@ -34,4 +34,8 @@
       until: resposta.stdout.find("Found ya") == -1
       retries: 4
       delay: 4
+
+    - name: Looping over our inventory, just print the host name
+      command: /bin/echo {{ item }}
+      loop: "{{ groups['all'] }}"
 ...
