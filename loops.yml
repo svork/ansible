@@ -37,5 +37,11 @@
 
     - name: Looping over our inventory, just print the host name
       command: /bin/echo {{ item }}
+      # where group[var], 'var' is the group name on hosts file, such a debian or centos
       loop: "{{ groups['all'] }}"
+
+    - name: Looping over the current host list
+      debug:
+        msg: The host is {{ item }}
+      loop: "{{ ansible_play_batch }}"
 ...
