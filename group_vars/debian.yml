@@ -1,5 +1,5 @@
 ---
-ansible_user: root
+ansible_user: rodrigo
 
 # Variable for testing purpose
 nice_user: svork
