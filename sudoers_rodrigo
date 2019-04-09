@@ -1,0 +1,2 @@
+# User 'rodrigo' is allowed to use root god-like powers
+rodrigo ALL=(root) NOPASSWD:ALL

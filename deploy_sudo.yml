@@ -1,0 +1,26 @@
+---
+- name: Deploy sudo on all our servers
+  hosts: centos:debian
+
+  tasks:
+  - name: Install sudo on CentOS hosts
+    yum:
+      name: sudo
+      state: latest
+      update_cache: yes
+    when: ansible_os_family == "RedHat"
+
+  - name: Install sudo on Debian hosts
+    apt:
+      name: sudo
+      state: latest
+      update_cache: yes
+      force_apt_get: yes
+    when: ansible_os_family == "Debian"
+
+  - name: Deploy sudo file
+    copy:
+      src: sudoers_rodrigo
+      dest: /etc/sudoers.d/rodrigo
+      mode: 0440
+...
