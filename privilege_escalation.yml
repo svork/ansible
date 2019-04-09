@@ -5,9 +5,8 @@
   tasks:
   - name: Create user 'Hulk'
     user:
-      name: Hulk
+      name: hulk
       home: /home/hulk
       state: present
     become: yes
-    become_method: su
 ...
