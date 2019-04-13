@@ -1,6 +1,7 @@
 ---
 - name: Update all packages of our systems
-  hosts: all
+  hosts: centos:debian
+  become: yes
 
   tasks:
     - name: Update all RedHat packages
